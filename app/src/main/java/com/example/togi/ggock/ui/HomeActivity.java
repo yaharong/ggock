@@ -31,9 +31,9 @@ public class HomeActivity extends RootActivity {
         adapter = new CustomAdapter(HomeActivity.this);
         viewPager.setAdapter(adapter);
 
-        ImageView viewpoint_viewpager1 = (ImageView) findViewById(R.id.viewpoint_viewpager1);
-        ImageView viewpoint_viewpager2 = (ImageView) findViewById(R.id.viewpoint_viewpager2);
-        ImageView viewpoint_viewpager3 = (ImageView) findViewById(R.id.viewpoint_viewpager3);
+        ImageView viewpoint_viewpager1 = (ImageView)findViewById(R.id.viewpoint_viewpager1);
+        ImageView viewpoint_viewpager2 = (ImageView)findViewById(R.id.viewpoint_viewpager2);
+        ImageView viewpoint_viewpager3 = (ImageView)findViewById(R.id.viewpoint_viewpager3);
 
         // default 세팅
         viewpoint_viewpager1.setImageResource(android.R.drawable.presence_online);
