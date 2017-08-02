@@ -22,7 +22,7 @@
             android:name=".ui.ZZimActivity"
             android:label="@string/title_activity_zzim" />
         <activity
-            android:name=".ui.MyPageActivity"
+            android:name=".ui.MyPageNoAuthActivity"
             android:label="@string/title_activity_my_page" />
         <activity
             android:name=".ui.NoticeActivity"

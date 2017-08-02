@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.togi.ggock.ui.MyPageActivity"
+    tools:context="com.example.togi.ggock.ui.MyPageNoAuthActivity"
     android:orientation="vertical"
-    tools:showIn="@layout/activity_my_page">
+    tools:showIn="@layout/activity_my_page_noauth">
 
 
     <FrameLayout

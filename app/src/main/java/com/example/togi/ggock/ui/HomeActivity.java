@@ -91,7 +91,7 @@ public class HomeActivity extends RootActivity {
                     changeActivity(self, ZZimActivity.class);
                     return true;
                 case R.id.navigation_myPage:            // 마이페이지 버튼 클릭 시
-                    changeActivity(self, MyPageActivity.class);
+                    changeActivity(self, MyPageNoAuthActivity.class);
                     return true;
             }
             return false;
