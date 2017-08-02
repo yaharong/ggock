@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">이거꼭사</string>
+    <string name="title_home">홈</string>
+    <string name="title_zzim">찜</string>
+    <string name="title_myPage">마이페이지</string>
+    <string name="title_activity_zzim">ZZimActivity</string>
+    <string name="title_activity_my_page">MyPageActivity</string>
+    <string name="title_activity_notice">NoticeActivity</string>
+    <string name="title_activity_item_detail">ItemDetailActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_card_news">CardNewsActivity</string>
+</resources>

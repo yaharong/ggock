@@ -1,0 +1,135 @@
+{
+  "project_info": {
+    "project_number": "1041260647552",
+    "firebase_url": "https://firstfbtest-ad8e7.firebaseio.com",
+    "project_id": "firstfbtest-ad8e7",
+    "storage_bucket": "firstfbtest-ad8e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041260647552:android:cc90a445bfde4458",
+        "android_client_info": {
+          "package_name": "com.example.togi.fbtest6"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041260647552-8oc0ttfjjmredbvivm2c1m605grkj9eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWUBj6Tsl-rxstDT1VBXalv0dhd5yR3Lo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041260647552:android:215d01cb2dc82a57",
+        "android_client_info": {
+          "package_name": "com.example.tacademy.facebooktest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041260647552-8oc0ttfjjmredbvivm2c1m605grkj9eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWUBj6Tsl-rxstDT1VBXalv0dhd5yR3Lo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041260647552:android:b36b0e2242eefa9c",
+        "android_client_info": {
+          "package_name": "com.example.togi.testgit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041260647552-8oc0ttfjjmredbvivm2c1m605grkj9eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWUBj6Tsl-rxstDT1VBXalv0dhd5yR3Lo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041260647552:android:2fd9f5373367f58c",
+        "android_client_info": {
+          "package_name": "com.example.togi.ggock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041260647552-8oc0ttfjjmredbvivm2c1m605grkj9eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWUBj6Tsl-rxstDT1VBXalv0dhd5yR3Lo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
