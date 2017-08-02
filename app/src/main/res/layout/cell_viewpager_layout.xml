@@ -16,9 +16,4 @@
         android:id="@+id/text_viewpager"
         android:textSize="50sp"/>
 
-
-
-
-
-
 </RelativeLayout>
