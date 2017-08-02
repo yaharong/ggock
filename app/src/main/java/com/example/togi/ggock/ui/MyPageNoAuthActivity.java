@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 import com.example.togi.ggock.R;
 
-public class ZZimActivity extends RootActivity {
+public class MyPageNoAuthActivity extends RootActivity {
 
     Activity self;  // 17-08-01 : 자기자신 선언
 
@@ -21,11 +21,11 @@ public class ZZimActivity extends RootActivity {
                     changeActivity(self, HomeActivity.class);
                     return true;
                 case R.id.navigation_zzim:              // 찜 버튼 클릭 시
-                    // 17-08-01 : 찜 화면 새로고침
-                    refreshActivity(self, ZZimActivity.class);
+                    changeActivity(self, ZZimActivity.class);
                     return true;
                 case R.id.navigation_myPage:            // 마이페이지 버튼 클릭 시
-                    changeActivity(self, MyPageNoAuthActivity.class);
+                    // 17-08-01 : 마이페이지 화면 새로고침
+                    refreshActivity(self, MyPageNoAuthActivity.class);
                     return true;
             }
             return false;
@@ -33,13 +33,12 @@ public class ZZimActivity extends RootActivity {
 
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
-        setContentView(R.layout.activity_zzim);
+        setContentView(R.layout.activity_my_page_noauth);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -56,8 +55,7 @@ public class ZZimActivity extends RootActivity {
 //            }
 //        });
 
-        self = ZZimActivity.this;   // 17-08-01 : 자기자신 초기화
-
+        self = MyPageNoAuthActivity.this;   // 17-08-01 : 자기자신 초기화
     }
 
 }

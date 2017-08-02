@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 import com.example.togi.ggock.R;
 
-public class MyPageActivity extends RootActivity {
+public class MyPageAuthActivity extends RootActivity {
 
     Activity self;  // 17-08-01 : 자기자신 선언
 
@@ -25,7 +25,7 @@ public class MyPageActivity extends RootActivity {
                     return true;
                 case R.id.navigation_myPage:            // 마이페이지 버튼 클릭 시
                     // 17-08-01 : 마이페이지 화면 새로고침
-                    refreshActivity(self, MyPageActivity.class);
+                    refreshActivity(self, MyPageAuthActivity.class);
                     return true;
             }
             return false;
@@ -38,7 +38,7 @@ public class MyPageActivity extends RootActivity {
         super.onCreate(savedInstanceState);
 
 
-        setContentView(R.layout.activity_my_page);
+        setContentView(R.layout.activity_my_page_noauth);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -55,7 +55,7 @@ public class MyPageActivity extends RootActivity {
 //            }
 //        });
 
-        self = MyPageActivity.this;   // 17-08-01 : 자기자신 초기화
+        self = MyPageAuthActivity.this;   // 17-08-01 : 자기자신 초기화
     }
 
 }
