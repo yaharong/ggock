@@ -19,6 +19,7 @@ import com.example.togi.ggock.R;
 public class CustomAdapter extends PagerAdapter {
 
     Context context;
+    // 이미지 갯수
     int[] imageId = {R.drawable.gametitle_09, R.drawable.gametitle_10};
 
     public CustomAdapter(Context context){
@@ -28,19 +29,25 @@ public class CustomAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        // TODO Auto-generated method stub
 
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-
         View viewItem = inflater.inflate(R.layout.cell_viewpager_layout, container, false);
+
         ImageView imageView = (ImageView) viewItem.findViewById(R.id.img_viewpager);
         imageView.setImageResource(imageId[position]);
         TextView textView1 = (TextView) viewItem.findViewById(R.id.text_viewpager);
-        textView1.setText("프랑스");
+        textView1.setText("나는 광고다");
+
+
+
+
+
         ((ViewPager)container).addView(viewItem);
 
         return viewItem;
     }
+
+
 
     @Override
     public int getCount() {
