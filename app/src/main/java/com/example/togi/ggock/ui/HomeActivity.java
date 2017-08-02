@@ -12,6 +12,9 @@ import com.example.togi.ggock.R;
 
 public class HomeActivity extends RootActivity {
 
+    // 1. 프래그먼트로 바꾸기(하단 네비게이션 드로어 리스너) <= refresh 기능을 추후 추가할 것
+    // 2. 프래그먼트안에 프래그먼트 만들기
+
     Activity self;  // 17-08-01 : 자기자신 선언
 
     private CustomAdapter adapter;
@@ -38,6 +41,7 @@ public class HomeActivity extends RootActivity {
         // default 세팅
         viewpoint_viewpager1.setImageResource(android.R.drawable.presence_online);
 
+        // 뷰페이저 스와이프 리스너
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -74,9 +78,6 @@ public class HomeActivity extends RootActivity {
     }
 
 
-
-
-
     // 하단 네비게이션 드로어 리스너
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -97,7 +98,4 @@ public class HomeActivity extends RootActivity {
             return false;
         }
     };
-
-
-
 }

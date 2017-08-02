@@ -10,6 +10,7 @@ import android.view.View;
 /**
  * Created by Tacademy on 2017-08-01.
  * 모든 액티비티에서 같이 쓸 사항이 속해 있다.
+ *
  */
 
 public class RootActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class RootActivity extends AppCompatActivity {
         Intent intent = new Intent(currentContext, targetActivity);
         startActivity(intent);
     }
+
     // 17-08-01 16:18 : (togi) 액티비티 새로고침(현재 액티비티, 타겟 액티비티)
     public void refreshActivity(Context currentContext, Class<?> targetActivity)
     {
@@ -29,11 +31,9 @@ public class RootActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
     }
 
