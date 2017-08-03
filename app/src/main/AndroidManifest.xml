@@ -40,7 +40,8 @@
             android:name=".ui.CardNewsActivity"
             android:label="@string/title_activity_card_news"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ui.JoinActivity"></activity>
+        <activity android:name=".ui.JoinActivity" />
+        <activity android:name=".ui.FranceActivity"></activity>
     </application>
 
 </manifest>
