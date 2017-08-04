@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.king.togi.ggock.R;
@@ -64,8 +65,7 @@ public class HomePageFragment extends Fragment {
     }
 
     // 점 UI
-    public void pointUI(View view)
-    {
+    public void pointUI(View view) {
         ImageView viewpoint_viewpager1 = (ImageView) view.findViewById(R.id.viewpoint_viewpager1);
         ImageView viewpoint_viewpager2 = (ImageView) view.findViewById(R.id.viewpoint_viewpager2);
         ImageView viewpoint_viewpager3 = (ImageView) view.findViewById(R.id.viewpoint_viewpager3);
@@ -78,20 +78,15 @@ public class HomePageFragment extends Fragment {
             }
             @Override
             public void onPageSelected(int position) {
-                if(position == 0)
-                {
+                if (position == 0) {
                     viewpoint_viewpager1.setImageResource(android.R.drawable.presence_online);
                     viewpoint_viewpager2.setImageResource(android.R.drawable.presence_invisible);
                     viewpoint_viewpager3.setImageResource(android.R.drawable.presence_invisible);
-                }
-                else if(position == 1)
-                {
+                } else if (position == 1) {
                     viewpoint_viewpager1.setImageResource(android.R.drawable.presence_invisible);
                     viewpoint_viewpager2.setImageResource(android.R.drawable.presence_online);
                     viewpoint_viewpager3.setImageResource(android.R.drawable.presence_invisible);
-                }
-                else
-                {
+                } else {
                     viewpoint_viewpager1.setImageResource(android.R.drawable.presence_invisible);
                     viewpoint_viewpager2.setImageResource(android.R.drawable.presence_invisible);
                     viewpoint_viewpager3.setImageResource(android.R.drawable.presence_online);
@@ -99,17 +94,12 @@ public class HomePageFragment extends Fragment {
             }
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
-
-
-
     }
 
     // 리사이클러 뷰 만들기
-    public ArrayList<ItemModel> initData()
-    {
+    public ArrayList<ItemModel> initData() {
         String data[][] =
                 {
                         {"SOON.9", "http://postfiles14.naver.net/MjAxNzAyMDZfMTUw/MDAxNDg2MzQ1NzQxNzAw.EeDfmVU_xMJG75SyK0dmm2URhy_ZNZ2iVwkmY3JzF6cg.10Q8usGt2iyzGCz3zB_mUiJ0ZZtowaTMVbSTu3T4do0g.JPEG.sweetbin38/DSC_2265.JPG?type=w966"},
@@ -117,23 +107,22 @@ public class HomePageFragment extends Fragment {
                 };
         // HairModel객체에 데이터를 담아서 ArrayList<HairModel>를 반환하시오
         ArrayList<ItemModel> arrayList = new ArrayList<>();
-        for( String[] a : data)
-        {
+        for (String[] a : data) {
             arrayList.add(new ItemModel(a[0], a[1]));
         }
         return arrayList;
     }
-    class TestViewHolder extends RecyclerView.ViewHolder
-    {
+
+    class TestViewHolder extends RecyclerView.ViewHolder {
         ImageView poster;
+        TextView name;
         public TestViewHolder(View itemView) {
             super(itemView);
             poster = itemView.findViewById(R.id.poster);
-
-        }
+            name = itemView.findViewById(R.id.name);
     }
-    class TestAdapter extends RecyclerView.Adapter<TestViewHolder>
-    {
+
+    class TestAdapter extends RecyclerView.Adapter<TestViewHolder> {
         @Override
         public TestViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             // xml -> View
@@ -148,16 +137,17 @@ public class HomePageFragment extends Fragment {
             // 데이터 추출
             ItemModel itemModel = itemModels.get(position);
             // 텍스트 세팅
-            //holder.name.setText( hairModel.getShopName() );
+            holder.name.setText( itemModel.getShopName() );
             // 이미지 세팅
             Glide.with(getActivity())
                     .load(itemModel.getPoster())
                     .into(holder.poster);
 
         }
+
         @Override
         public int getItemCount() {
-            return itemModels==null ? 0 : itemModels.size();
+            return itemModels == null ? 0 : itemModels.size();
         }
     }
 }
