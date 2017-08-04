@@ -5,32 +5,76 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     // 로그인후
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:civ_border_width="5dp"
-        app:civ_border_color="#FF000000"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/circleImageView"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3"
-        android:layout_marginTop="71dp" />
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="프로필 관리"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="마이페이지" />
+
+    // 뒤로가기 버튼
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:id="@+id/button4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    // 누르면 프로필 사진 수정 가능(카메라, 앨범)
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"
+        android:layout_weight="1"
+        android:src="@mipmap/ic_launcher"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="5dp"
+        android:onClick="onMoveToImage"/>
+
+    // 사용자 닉네임
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/circleImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
+        android:text="이루루" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="내가 쓴 의견 모아보기"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3"
-        android:layout_marginBottom="131dp" />
+        android:orientation="vertical">
+
+        // 프로필 관리로 이동
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="300dp"
+            android:layout_weight="1"
+            android:text="프로필 관리"
+            android:onClick="onMoveToProfile"/>
+
+        // 내가 쓴 의견 모아보기로 이동
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button3"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="내가 쓴 의견 모아보기"
+            android:onClick="onMoveToMyOpinion"/>
+
+    </LinearLayout>
+
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.togi.ggock.R;
 
@@ -56,6 +57,17 @@ public class MyPageAuthActivity extends RootActivity {
 //        });
 
         self = MyPageAuthActivity.this;   // 17-08-01 : 자기자신 초기화
+    }
+    // 원형 눌렀을때 반응
+    public void onMoveToImage(View view){
+    }
+    // 프로필 관리로 이동하는 기능
+    public void onMoveToProfile(View view){
+        //changeActivity(this, );
+    }
+    // 내 의견 보기로 이동
+    public void onMoveToMyOpinion(View view){
+        //changeActivity(this, );
     }
 
 }
