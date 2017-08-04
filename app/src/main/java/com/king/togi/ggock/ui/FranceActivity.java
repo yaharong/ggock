@@ -8,14 +8,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.king.togi.ggock.R;
+import com.king.togi.ggock.fragment.BeautyFragment;
+import com.king.togi.ggock.fragment.ClothesFragment;
+import com.king.togi.ggock.fragment.DrugFragment;
+import com.king.togi.ggock.fragment.SuppliesFragment;
+import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 public class FranceActivity extends AppCompatActivity {
 
@@ -34,6 +34,7 @@ public class FranceActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,37 +50,36 @@ public class FranceActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_france, menu);
-        return true;
-    }
+
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
+
         @Override
+        // Fragment 만들어야함
         public Fragment getItem(int position) {
-            switch(position){
+            switch (position) {
                 case 0:
-                    return new TotalBbsFragment();
+                    return new BeautyFragment();
                 case 1:
-                    return new LikeBbsFragment();
+                    return new ClothesFragment();
                 case 2:
-                    return new LikeBbsFragment();
+                    return new DrugFragment();
                 default:
-                    return new MyBbsFragment();
+                    return new SuppliesFragment();
             }
             //return PlaceholderFragment.newInstance(position + 1);
         }
+
         @Override
         public int getCount() {
             // Show 3 total pages.
             return 4;
         }
+
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
@@ -89,9 +89,29 @@ public class FranceActivity extends AppCompatActivity {
                     return "화장품";
                 case 2:
                     return "의류";
+                case 3:
+                    return "약품";
             }
             return null;
         }
     }
 
+    // 가격 조절 필터(레인지시크바 이용)
+    // getactivity???
+    // 구체적으로 구현 아직 안됨
+    public void onFilter() {
+        RangeSeekBar<Integer> seekBar = new RangeSeekBar<Integer>(FranceActivity.this);
+        seekBar.setRangeValues(0, 100);
+
+        seekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>() {
+            @Override
+            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
+                //Now you have the minValue and maxValue of your RangeSeekbar
+                Toast.makeText(getApplicationContext(), minValue + "-" + maxValue, Toast.LENGTH_LONG).show();
+            }
+        });
+        // Get noticed while dragging
+        seekBar.setNotifyWhileDragging(true);
+
+    }
 }

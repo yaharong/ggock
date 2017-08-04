@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.king.togi.ggock.ui.HomeActivity"
+            android:name=".ui.HomeActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,29 +19,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.king.togi.ggock.ui.ZZimActivity"
+            android:name=".ui.ZZimActivity"
             android:label="@string/title_activity_zzim" />
         <activity
-            android:name="com.king.togi.ggock.ui.MyPageNoAuthActivity"
+            android:name=".ui.MyPageNoAuthActivity"
             android:label="@string/title_activity_my_page" />
         <activity
-            android:name="com.king.togi.ggock.ui.NoticeActivity"
+            android:name=".ui.NoticeActivity"
             android:label="@string/title_activity_notice"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.king.togi.ggock.ui.ItemDetailActivity"
+            android:name=".ui.ItemDetailActivity"
             android:label="@string/title_activity_item_detail"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.king.togi.ggock.ui.LoginActivity"
+            android:name=".ui.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.king.togi.ggock.ui.CardNewsActivity"
+            android:name=".ui.CardNewsActivity"
             android:label="@string/title_activity_card_news"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.king.togi.ggock.ui.JoinActivity" />
-        <activity android:name="com.king.togi.ggock.ui.FranceActivity"></activity>
+        <activity android:name=".ui.JoinActivity" />
+        <activity
+            android:name=".ui.FranceActivity"
+            android:label="@string/title_activity_france"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
