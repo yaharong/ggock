@@ -1,4 +1,4 @@
-package com.example.togi.ggock.ui;
+package com.king.togi.ggock.ui;
 
 import android.content.Context;
 import android.content.Intent;

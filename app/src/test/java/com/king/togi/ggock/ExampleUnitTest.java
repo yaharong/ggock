@@ -1,4 +1,4 @@
-package com.example.togi.ggock;
+package com.king.togi.ggock;
 
 import org.junit.Test;
 

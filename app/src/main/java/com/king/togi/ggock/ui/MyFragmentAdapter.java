@@ -1,12 +1,12 @@
-package com.example.togi.ggock.ui;
+package com.king.togi.ggock.ui;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.togi.ggock.fragment.HomePageFragment;
-import com.example.togi.ggock.fragment.MyPageFragment;
-import com.example.togi.ggock.fragment.ZZimPageFragment;
+import com.king.togi.ggock.fragment.HomePageFragment;
+import com.king.togi.ggock.fragment.MyPageFragment;
+import com.king.togi.ggock.fragment.ZZimPageFragment;
 
 /**
  * Created by Tacademy on 2017-08-03.

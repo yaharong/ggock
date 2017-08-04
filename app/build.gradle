@@ -15,7 +15,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "com.example.togi.ggock"
+        applicationId "com.king.togi.ggock"
         minSdkVersion 16 // 파파라조때문에 15에서 16으로 변경
         targetSdkVersion 26
         versionCode 1

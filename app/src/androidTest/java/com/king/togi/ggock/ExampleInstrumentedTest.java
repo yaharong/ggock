@@ -1,4 +1,4 @@
-package com.example.togi.ggock;
+package com.king.togi.ggock;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

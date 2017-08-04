@@ -101,9 +101,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1041260647552:android:2fd9f5373367f58c",
+        "mobilesdk_app_id": "1:1041260647552:android:7e5250057736c824",
         "android_client_info": {
-          "package_name": "com.example.togi.ggock"
+          "package_name": "com.king.togi.ggock"
         }
       },
       "oauth_client": [

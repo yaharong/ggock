@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.togi.ggock.ui.NoticeActivity"
+    tools:context="com.king.togi.ggock.ui.NoticeActivity"
     tools:showIn="@layout/activity_notice">
 
 </android.support.constraint.ConstraintLayout>

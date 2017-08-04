@@ -1,4 +1,4 @@
-package com.example.togi.ggock.util;
+package com.king.togi.ggock.util;
 
 import android.util.Log;
 

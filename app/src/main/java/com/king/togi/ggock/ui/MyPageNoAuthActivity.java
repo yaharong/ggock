@@ -1,4 +1,4 @@
-package com.example.togi.ggock.ui;
+package com.king.togi.ggock.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
-import com.example.togi.ggock.R;
+import com.king.togi.ggock.R;
 
 public class MyPageNoAuthActivity extends RootActivity {
 

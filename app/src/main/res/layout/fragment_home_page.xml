@@ -3,25 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.togi.ggock.fragment.HomePageFragment">
+    tools:context="com.king.togi.ggock.fragment.HomePageFragment">
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+
+        >
         <!-- 전체 틀 -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="200dp"
+                >
                 <!--광고/서비스 이미지 (뷰 페이저)-->
                 <android.support.v4.view.ViewPager
                     android:id="@+id/pager"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
                 </android.support.v4.view.ViewPager>
 
                 <!-- 화면 넘김 의미하는 점 UI -->
@@ -54,19 +59,46 @@
                     </LinearLayout>
                 </FrameLayout>
             </RelativeLayout>
-            <!--최근 본상품(리스트뷰+visiable=gone)-->
-            <ListView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:visibility="visible"
-                android:background="#f122ff"
+
+
+            <!--최근 본상품(리사이클러뷰+visiable=gone)-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 >
-            </ListView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="최근 본 상품"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                />
+            </LinearLayout>
+                <!-- cell_latest_item_layout -->
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    android:background="#ffffff"
+                    >
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
 
             <!-- 나라별 리스트 뷰 (cell_home_layout) -->
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="#f12222"
                 >
             </ListView>

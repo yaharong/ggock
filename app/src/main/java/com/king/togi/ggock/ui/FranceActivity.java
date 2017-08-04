@@ -1,9 +1,9 @@
-package com.example.togi.ggock.ui;
+package com.king.togi.ggock.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.togi.ggock.R;
+import com.king.togi.ggock.R;
 
 public class FranceActivity extends AppCompatActivity {
 

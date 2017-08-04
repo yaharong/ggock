@@ -1,4 +1,4 @@
-package com.example.togi.ggock.fragment;
+package com.king.togi.ggock.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.togi.ggock.R;
+import com.king.togi.ggock.R;
 
 public class ZZimPageFragment extends Fragment {
 

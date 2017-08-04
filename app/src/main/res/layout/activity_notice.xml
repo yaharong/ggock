@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.togi.ggock.ui.NoticeActivity">
+    tools:context="com.king.togi.ggock.ui.NoticeActivity">
 
 
 

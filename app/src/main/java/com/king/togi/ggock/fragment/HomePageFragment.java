@@ -1,4 +1,4 @@
-package com.example.togi.ggock.fragment;
+package com.king.togi.ggock.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.togi.ggock.R;
-import com.example.togi.ggock.ui.CustomAdapter;
+import com.king.togi.ggock.R;
+import com.king.togi.ggock.ui.CustomAdapter;
 
 public class HomePageFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -31,7 +31,7 @@ public class HomePageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        // 해당 프레그먼트를 화면에 출력
         View view = inflater.inflate(R.layout.fragment_home_page, container, false);
 
         // Inflate the layout for this fragment

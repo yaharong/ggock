@@ -1,4 +1,4 @@
-package com.example.togi.ggock.ui;
+package com.king.togi.ggock.ui;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.togi.ggock.R;
+import com.king.togi.ggock.R;
 
 /**
  * Created by Tacademy on 2017-08-02.
