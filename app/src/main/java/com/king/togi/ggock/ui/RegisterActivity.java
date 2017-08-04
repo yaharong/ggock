@@ -1,4 +1,4 @@
-package com.example.togi.ggock.ui;
+package com.king.togi.ggock.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.togi.ggock.R;
+import com.king.togi.ggock.R;
 
 /**
  * Created by Tacademy on 2017-08-04.

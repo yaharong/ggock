@@ -71,7 +71,7 @@ public class HomePageFragment extends Fragment
         latest_item_layout = (LinearLayout) view.findViewById(R.id.latest_item_layout);
         //latest_item_layout.setVisibility(View.GONE);
 
-        
+
 
         return view;
     }
