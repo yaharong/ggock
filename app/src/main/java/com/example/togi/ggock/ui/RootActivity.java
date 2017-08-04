@@ -10,11 +10,8 @@ import android.view.View;
 /**
  * Created by Tacademy on 2017-08-01.
  * 모든 액티비티에서 같이 쓸 사항이 속해 있다.
- *
  */
-
 public class RootActivity extends AppCompatActivity {
-
 
     // 17-08-01 16:18 : (togi) 액티비티 이동(현재 액티비티, 타겟 액티비티)
     public void changeActivity(Context currentContext, Class<?> targetActivity)
@@ -34,6 +31,7 @@ public class RootActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 하단탭바 선언 및 초기화
 
     }
 
@@ -42,4 +40,6 @@ public class RootActivity extends AppCompatActivity {
     {
         changeActivity(this, NoticeActivity.class);
     }
+
+
 }

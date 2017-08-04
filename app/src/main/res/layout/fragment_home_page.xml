@@ -1,0 +1,79 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.togi.ggock.fragment.HomePageFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- 전체 틀 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <!--광고/서비스 이미지 (뷰 페이저)-->
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </android.support.v4.view.ViewPager>
+
+                <!-- 화면 넘김 의미하는 점 UI -->
+                <FrameLayout
+                    android:paddingBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentBottom="true"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/viewpoint_viewpager1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@android:drawable/presence_invisible"/>
+                        <ImageView
+                            android:id="@+id/viewpoint_viewpager2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@android:drawable/presence_invisible"/>
+                        <ImageView
+                            android:id="@+id/viewpoint_viewpager3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@android:drawable/presence_invisible"/>
+                    </LinearLayout>
+                </FrameLayout>
+            </RelativeLayout>
+            <!--최근 본상품(리스트뷰+visiable=gone)-->
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:visibility="visible"
+                android:background="#f122ff"
+                >
+            </ListView>
+
+            <!-- 나라별 리스트 뷰 (cell_home_layout) -->
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#f12222"
+                >
+            </ListView>
+
+        </LinearLayout>
+
+    </ScrollView>
+    <!-- Top 플로팅 버튼 -->
+
+</FrameLayout>
