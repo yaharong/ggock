@@ -14,22 +14,27 @@ import com.king.togi.ggock.fragment.HomePageFragment;
 import com.king.togi.ggock.fragment.MyPageFragment;
 import com.king.togi.ggock.fragment.ZZimPageFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class HomeActivity extends RootActivity {
 
-    // 1. 프래그먼트로 바꾸기(하단 네비게이션 드로어 리스너) <= refresh 기능을 추후 추가할 것
-    // 2. 프래그먼트안에 프래그먼트 만들기
-
-    Activity self;  // 17-08-01 : 자기자신 선언
+    // 하단 탭바 바인딩
+    @BindView(R.id.navigation)
+    BottomNavigationView navigation;
+    // 17-08-01 : 자기자신 선언
+    Activity self;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // 하단 탭바
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        // 버터나이프 바인딩
+        ButterKnife.bind(this);
 
+        // 하단 탭바 초기화
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         self = HomeActivity.this;   // 17-08-01 : 자기자신 초기화
 
