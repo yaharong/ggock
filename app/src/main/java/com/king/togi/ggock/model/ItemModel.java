@@ -9,6 +9,9 @@ public class ItemModel
     String shopName;
     String poster;
 
+    public ItemModel() {
+    }
+
     public ItemModel(String shopName, String poster) {
         this.shopName = shopName;
         this.poster = poster;
