@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 
 import com.king.togi.ggock.R;
@@ -16,6 +13,10 @@ import com.king.togi.ggock.fragment.ZZimPageFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+/*
+*   하단 탭바가 존재하며 이를 관리하는 총괄 액티비티
+* */
 
 public class HomeActivity extends RootActivity {
 
@@ -70,23 +71,6 @@ public class HomeActivity extends RootActivity {
         }
     };
 
-    /**
-     * Method to push any fragment into given id.
-     *
-     * @param fragment An instance of Fragment to show into the given id.
-     */
-    protected void pushFragment(Fragment fragment) {
-        if (fragment == null)
-            return;
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        if (fragmentManager != null) {
-            FragmentTransaction ft = fragmentManager.beginTransaction();
-            if (ft != null) {
-                ft.replace(R.id.main_container, fragment);
-                ft.commit();
-            }
-        }
-    }
 
 }

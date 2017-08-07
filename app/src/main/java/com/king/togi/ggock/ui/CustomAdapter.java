@@ -14,12 +14,13 @@ import com.king.togi.ggock.R;
 
 /**
  * Created by Tacademy on 2017-08-02.
+ * 홈페이지 광고/서비스 파트에서 쓰이는 페이져 어댑터
  */
 
 public class CustomAdapter extends PagerAdapter {
 
     Context context;
-    // 이미지 갯수
+    // 이미지 갯수 , 현재 이미지는 그냥 하드코딩으로 들어가있따.
     int[] imageId = {R.drawable.gametitle_09, R.drawable.gametitle_10};
 
     public CustomAdapter(Context context){
@@ -36,7 +37,7 @@ public class CustomAdapter extends PagerAdapter {
         ImageView imageView = (ImageView) viewItem.findViewById(R.id.img_viewpager);
         imageView.setImageResource(imageId[position]);
         TextView textView1 = (TextView) viewItem.findViewById(R.id.text_viewpager);
-        textView1.setText("나는 광고다");
+        textView1.setText("나는 광고다");    // 광고 문구
 
 
 

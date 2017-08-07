@@ -18,6 +18,12 @@ import com.king.togi.ggock.ui.CustomAdapter;
 
 import java.util.ArrayList;
 
+/*
+* writen by. togi
+*   홈페이지 버튼을 눌렀을 때 전환되는 홈 화면
+*
+* */
+
 public class HomePageFragment extends Fragment
 {
     // 전역 변수 선언 ========================================================================================
@@ -136,6 +142,7 @@ public class HomePageFragment extends Fragment
             //name = itemView.findViewById(R.id.name);
         }
     }
+    // TestAdapter : 리사이클러 뷰 어댑터
     class TestAdapter extends RecyclerView.Adapter<TestViewHolder> {
         @Override
         public TestViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
