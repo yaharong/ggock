@@ -23,32 +23,31 @@ public class CustomAdapter extends PagerAdapter {
     // 이미지 갯수 , 현재 이미지는 그냥 하드코딩으로 들어가있따.
     int[] imageId = {R.drawable.gametitle_09, R.drawable.gametitle_10};
 
+    ImageView imageView;
+    TextView textView1;
+
     public CustomAdapter(Context context){
         this.context = context;
 
     }
 
+
+
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
 
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View viewItem = inflater.inflate(R.layout.cell_viewpager_layout, container, false);
+        View viewItem           = inflater.inflate(R.layout.cell_viewpager_layout, container, false);
 
-        ImageView imageView = (ImageView) viewItem.findViewById(R.id.img_viewpager);
+        imageView     = (ImageView) viewItem.findViewById(R.id.img_viewpager);
         imageView.setImageResource(imageId[position]);
-        TextView textView1 = (TextView) viewItem.findViewById(R.id.text_viewpager);
+        textView1      = (TextView) viewItem.findViewById(R.id.text_viewpager);
         textView1.setText("나는 광고다");    // 광고 문구
-
-
-
-
 
         ((ViewPager)container).addView(viewItem);
 
         return viewItem;
     }
-
-
 
     @Override
     public int getCount() {
