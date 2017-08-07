@@ -7,15 +7,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 
 import com.king.togi.ggock.R;
 import com.king.togi.ggock.fragment.BeautyFragment;
 import com.king.togi.ggock.fragment.ClothesFragment;
 import com.king.togi.ggock.fragment.DrugFragment;
 import com.king.togi.ggock.fragment.SuppliesFragment;
-import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 public class FranceActivity extends AppCompatActivity {
 
@@ -40,15 +40,26 @@ public class FranceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_france);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+
+
+        Spinner s = (Spinner)findViewById(R.id.spinner1);
+        s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+
     }
 
 
@@ -99,19 +110,19 @@ public class FranceActivity extends AppCompatActivity {
     // 가격 조절 필터(레인지시크바 이용)
     // getactivity???
     // 구체적으로 구현 아직 안됨
-    public void onFilter() {
-        RangeSeekBar<Integer> seekBar = new RangeSeekBar<Integer>(FranceActivity.this);
-        seekBar.setRangeValues(0, 100);
-
-        seekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>() {
-            @Override
-            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
-                //Now you have the minValue and maxValue of your RangeSeekbar
-                Toast.makeText(getApplicationContext(), minValue + "-" + maxValue, Toast.LENGTH_LONG).show();
-            }
-        });
-        // Get noticed while dragging
-        seekBar.setNotifyWhileDragging(true);
-
-    }
+//    public void onFilter() {
+//        RangeSeekBar<Integer> seekBar = new RangeSeekBar<Integer>(FranceActivity.this);
+//        seekBar.setRangeValues(0, 100);
+//
+//        seekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>() {
+//            @Override
+//            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
+//                //Now you have the minValue and maxValue of your RangeSeekbar
+//                Toast.makeText(getApplicationContext(), minValue + "-" + maxValue, Toast.LENGTH_LONG).show();
+//            }
+//        });
+//        // Get noticed while dragging
+//        seekBar.setNotifyWhileDragging(true);
+//
+//    }
 }

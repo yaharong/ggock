@@ -19,7 +19,7 @@ public class MyPageAuthActivity extends RootActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:              // 홈 버튼 클릭 시
-                    changeActivity(self, HomeActivity.class);
+                    changeActivity(self, MainActivity.class);
                     return true;
                 case R.id.navigation_zzim:              // 찜 버튼 클릭 시
                     changeActivity(self, ZZimActivity.class);

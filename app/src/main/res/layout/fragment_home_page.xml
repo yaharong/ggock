@@ -25,11 +25,12 @@
                 android:layout_height="200dp"
                 >
                 <!--광고/서비스 이미지 (뷰 페이저)-->
-                <android.support.v4.view.ViewPager
+                <com.king.togi.ggock.ui.ClickableViewPager
                     android:id="@+id/service_pager"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </android.support.v4.view.ViewPager>
+                    android:layout_height="wrap_content"
+                    android:focusable="true">
+                </com.king.togi.ggock.ui.ClickableViewPager>
 
                 <include
                     android:id="@+id/service_point_ui"
@@ -65,7 +66,6 @@
                     android:id="@+id/latest_item_recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-
                     android:background="#ffffff"
                     >
 
@@ -125,11 +125,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 >
-                <android.support.v4.view.ViewPager
+                <com.king.togi.ggock.ui.ClickableViewPager
                     android:id="@+id/cardnews_pager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                </android.support.v4.view.ViewPager>
+                </com.king.togi.ggock.ui.ClickableViewPager>
 
                 <!-- 화면 넘김 의미하는 점 UI -->
                 <include

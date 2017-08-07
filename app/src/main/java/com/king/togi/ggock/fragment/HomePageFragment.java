@@ -3,7 +3,8 @@ package com.king.togi.ggock.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,12 +15,13 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.king.togi.ggock.R;
 import com.king.togi.ggock.model.ItemModel;
-import com.king.togi.ggock.ui.CustomAdapter;
+import com.king.togi.ggock.ui.ClickableViewPager;
 import com.king.togi.ggock.ui.FranceActivity;
 
 import java.util.ArrayList;
@@ -30,15 +32,14 @@ import java.util.ArrayList;
 *
 * */
 
-public class HomePageFragment extends RootFragment
-{
+public class HomePageFragment extends RootFragment {
     // 전역 변수 선언 ========================================================================================
     View mView;  // fragment_home_page
     // 광고/서비스 ViewPager
-    private ViewPager service_pager;
-    private CustomAdapter viewpager_adapter;
+    private ClickableViewPager service_pager;
+    private ServiceAdapter viewpager_adapter;
     // 카드뉴스 ViewPager
-    private ViewPager cardnews_pager;
+    private ClickableViewPager cardnews_pager;
     // 최근 본 상품 리사이클러 뷰
     LinearLayout latest_item_layout;
     RecyclerView latest_item_recyclerView;
@@ -51,6 +52,10 @@ public class HomePageFragment extends RootFragment
     Button moreBtn;
     // 프랑스 이미지뷰
     ImageView france_image;
+    // 플래그먼트
+    LoginFragement loginFragement = new LoginFragement();
+    CardNewsFragment cardNewsFragment1 = new CardNewsFragment();
+    CardNewsFragment cardNewsFragment2 = new CardNewsFragment();
     // ======================================================================================================
 
     public HomePageFragment() {
@@ -86,16 +91,17 @@ public class HomePageFragment extends RootFragment
         detail_item_recyclerView.setAdapter(detail_item_adapter);
 
         // 광고/서비스 화면 넘기는 효과 ( 뷰페이저 ) ==================================================
-        service_pager = (ViewPager) mView.findViewById(R.id.service_pager);
-        viewpager_adapter = new CustomAdapter(mView.getContext());
+        service_pager = (ClickableViewPager) mView.findViewById(R.id.service_pager);
+        viewpager_adapter = new ServiceAdapter();
         service_pager.setAdapter(viewpager_adapter);
 
-        cardnews_pager = (ViewPager) mView.findViewById(R.id.cardnews_pager);
+        // 카드뉴스 넘기는 효과 ( 뷰페이저 )
+        cardnews_pager = (ClickableViewPager) mView.findViewById(R.id.cardnews_pager);
         cardnews_pager.setAdapter(viewpager_adapter);
 
         // 점 UI========================================================================================
-        FrameLayout service_point_ui = (FrameLayout) mView.findViewById(R.id.service_point_ui);
-        FrameLayout card_point_ui    = (FrameLayout) mView.findViewById(R.id.card_point_ui);
+        FrameLayout service_point_ui    = (FrameLayout) mView.findViewById(R.id.service_point_ui);
+        FrameLayout card_point_ui       = (FrameLayout) mView.findViewById(R.id.card_point_ui);
         pointUI(service_point_ui, service_pager);
         pointUI(card_point_ui, cardnews_pager);
 
@@ -106,20 +112,56 @@ public class HomePageFragment extends RootFragment
         //latest_item_layout.setVisibility(View.GONE);
 
         // 더보기 버튼에 클릭리스너 부착
-        moreBtn = (Button) mView.findViewById(R.id.moreBtn);
+        moreBtn         = (Button) mView.findViewById(R.id.moreBtn);
         everyClickListener(moreBtn, FranceActivity.class);
         // 프랑스 이미지 뷰 클릭리스너 부착
-        france_image = (ImageView) mView.findViewById(R.id.france_image);
-        everyClickListener(france_image,FranceActivity.class);
+        france_image    = (ImageView) mView.findViewById(R.id.france_image);
+        everyClickListener(france_image, FranceActivity.class);
 
-
+        // 뷰페이저에 클릭리스너
+        viewPagerClickListner(service_pager, loginFragement, loginFragement);
+        viewPagerClickListner(cardnews_pager, cardNewsFragment1, cardNewsFragment2);
 
         return mView;
     }
 
+    private void viewPagerClickListner(ClickableViewPager pager, Fragment fragment1, Fragment fragment2) {
+        pager.setOnItemClickListener(new ClickableViewPager.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                RelativeLayout mRelativeLayout = (RelativeLayout) mView.findViewById(R.id.image_frame);
+                switch (position) {
+                    case 0: {
+                        if (fragment1 != null)
+                            moveToTargetFragment(fragment1);
+                        break;
+                    }
+                    case 1: {
+                        if (fragment2 != null)
+                            moveToTargetFragment(fragment2);
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            }
+        });
+    }
+
+    private void moveToTargetFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        if (fragmentManager != null) {
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            if (ft != null) {
+                ft.replace(R.id.main_container, fragment);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        }
+    }
+
     // 첫번째 : 클릭리스너를 붙이고 싶은 View 객채, 두번째는 목표 지점 activity.class 로 전달
-    private void everyClickListener(View view, Class<?> targetActivity)
-    {
+    private void everyClickListener(View view, Class<?> targetActivity) {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,6 +183,7 @@ public class HomePageFragment extends RootFragment
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             }
+
             @Override
             public void onPageSelected(int position) {
                 if (position == 0) {
@@ -157,6 +200,7 @@ public class HomePageFragment extends RootFragment
                     viewpoint_viewpager3.setImageResource(android.R.drawable.presence_online);
                 }
             }
+
             @Override
             public void onPageScrollStateChanged(int state) {
             }
@@ -182,8 +226,10 @@ public class HomePageFragment extends RootFragment
         }
         return arrayList;
     }
+
     class TestViewHolder extends RecyclerView.ViewHolder {
         ImageView poster;
+
         //TextView name;
         public TestViewHolder(View itemView) {
             super(itemView);
@@ -213,7 +259,7 @@ public class HomePageFragment extends RootFragment
             // 이미지 세팅
             Glide.with(getActivity())
                     .load(itemModel.getPoster())
-                    .override(500,500)
+                    .override(500, 500)
                     .centerCrop()
                     .into(holder.poster);
         }
@@ -246,7 +292,7 @@ public class HomePageFragment extends RootFragment
             // 이미지 세팅
             Glide.with(getActivity())
                     .load(itemModel.getPoster())
-                    .override(500,500)
+                    .override(500, 500)
                     .centerCrop()
                     .into(holder.poster);
         }
@@ -258,17 +304,15 @@ public class HomePageFragment extends RootFragment
 
     }
 
-    LoginFragement loginFragement = new LoginFragement();
-    // 서비스 어댑터 ================================================================================
-    public class ServiceAdapter extends FragmentPagerAdapter
-    {
+
+    // 서비스 이미지 페이저 어댑터 ================================================================================
+    public class ServiceAdapter extends PagerAdapter {
         int[] imageId = {R.drawable.gametitle_09, R.drawable.gametitle_10};
         ImageView imageView;
         TextView textView1;
 
-        public ServiceAdapter(FragmentManager fm) {
-            super(fm);
-
+        public void setTextView1(String str) {
+            this.textView1.setText(str);
         }
 
         @Override
@@ -276,34 +320,48 @@ public class HomePageFragment extends RootFragment
 
             View viewItem = LayoutInflater.from(getActivity()).inflate(R.layout.cell_viewpager_layout, container, false);
 
-            imageView     = (ImageView) viewItem.findViewById(R.id.img_viewpager);
+            imageView = (ImageView) viewItem.findViewById(R.id.img_viewpager);
             imageView.setImageResource(imageId[position]);
-            textView1     = (TextView) viewItem.findViewById(R.id.text_viewpager);
-            textView1.setText("나는 광고다");    // 광고 문구
+            textView1 = (TextView) viewItem.findViewById(R.id.text_viewpager);
+            if(position == 0)
+            {
+                textView1.setText("고르곤졸라");    // 광고 문구
+            }
+            else
+            {
+                textView1.setText("콤비네이션");    // 광고 문구
+            }
 
-            ((ViewPager)container).addView(viewItem);
+
+            ((ViewPager) container).addView(viewItem);
+
 
             return viewItem;
         }
 
         @Override
-        public Fragment getItem(int position) {
-
-
-
-            switch (position)
-            {
-                case 0:
-                    return loginFragement;
-            }
-            return null;
+        public int getCount() {
+            // TODO Auto-generated method stub
+            return imageId.length;
         }
 
         @Override
-        public int getCount() {
-            return  imageId.length;
+        public boolean isViewFromObject(View view, Object object) {
+            // TODO Auto-generated method stub
+
+            return view == ((View) object);
         }
 
+        @Override
+        public void startUpdate(ViewGroup container) {
+            super.startUpdate(container);
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            // TODO Auto-generated method stub
+            ((ViewPager) container).removeView((View) object);
+        }
 
     }
 

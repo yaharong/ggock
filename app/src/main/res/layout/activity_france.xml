@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="com.king.togi.ggock.ui.FranceActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        >
 
-        <android.support.v7.widget.Toolbar
+        <RelativeLayout
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            >
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"/>
 
-        </android.support.v7.widget.Toolbar>
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:entries="@array/city"
+                    android:layout_centerInParent="true"
+                    />
+
+        </RelativeLayout>
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
@@ -32,16 +44,28 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/container"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:orientation="vertical"
+        android:weightSum="6">
 
-    <!-- 조절 가능한 시크바(최대, 최소) -->
-    <com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar
-        android:id="@+id/range"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onFilter"/>
-</android.support.design.widget.CoordinatorLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <!-- 조절 가능한 시크바(최대, 최소) -->
+        <com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar
+            android:id="@+id/range"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:onClick="onFilter" />
+    </LinearLayout>
+
+</LinearLayout>
