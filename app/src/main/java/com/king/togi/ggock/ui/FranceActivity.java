@@ -33,8 +33,6 @@ public class FranceActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,13 +49,11 @@ public class FranceActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
     }
 
-
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
-
         @Override
         // Fragment 만들어야함
         public Fragment getItem(int position) {
@@ -73,13 +69,11 @@ public class FranceActivity extends AppCompatActivity {
             }
             //return PlaceholderFragment.newInstance(position + 1);
         }
-
         @Override
         public int getCount() {
             // Show 3 total pages.
             return 4;
         }
-
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {

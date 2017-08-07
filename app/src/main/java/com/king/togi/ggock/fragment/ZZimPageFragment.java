@@ -27,5 +27,4 @@ public class ZZimPageFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_zzim_page, container, false);
     }
-
 }
