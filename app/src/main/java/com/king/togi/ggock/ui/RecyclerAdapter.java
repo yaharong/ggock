@@ -26,6 +26,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_item_list_layout, parent,false);
         return new RecyclerAdapter.ItemViewHolder;
+        // 2213123123123
     }
     // 데이터 셋의 크기를 리턴해줍니다.
     @Override
