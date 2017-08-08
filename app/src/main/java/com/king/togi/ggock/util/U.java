@@ -1,18 +1,28 @@
 package com.king.togi.ggock.util;
 
+import android.app.Activity;
+import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+
+import com.king.togi.ggock.R;
 
 /**
  * Created by Tacademy on 2017-07-17.
  * 유틸리티
  */
 
-class U {
+public class U {
     private static final U ourInstance = new U();
 
-    static U getInstance() {
+
+
+    public static U getInstance() {
         return ourInstance;
     }
+
 
     private U() {
     }
