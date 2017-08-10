@@ -126,18 +126,18 @@ public class ItemDetailActivity extends AppCompatActivity {
         }
     }
 
-    private class RecommandRecyclerViewAdapter extends RecyclerView.Adapter<TestViewHolder>
+    private class RecommandRecyclerViewAdapter extends RecyclerView.Adapter<CommentViewHolder>
     {
         @Override
-        public TestViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public CommentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view =
                     LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_detailpage_recommand_layout, parent, false);
 
-            return new TestViewHolder(view);
+            return new CommentViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(TestViewHolder holder, int position) {
+        public void onBindViewHolder(CommentViewHolder holder, int position) {
 
         }
 

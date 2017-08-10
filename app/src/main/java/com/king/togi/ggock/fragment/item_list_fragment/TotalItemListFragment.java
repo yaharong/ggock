@@ -15,7 +15,6 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.king.togi.ggock.Adapter.TotalAdapter;
 import com.king.togi.ggock.R;
 import com.king.togi.ggock.fragment.RootFragment;
@@ -80,7 +79,7 @@ public class TotalItemListFragment extends RootFragment{
             public void onResponse(Call<TotalModel> call, Response<TotalModel> response) {
                 if(response.isSuccessful())
                 {
-                    U.getInstance().log("내이름은 ? "+response.body().getName());
+//                    U.getInstance().log("내이름은 ? "+response.body().getName());
                     // 데이터를 담아 둘 변수를 하나 만들고
                     // setAdapter() 메소드를 하나 짜서 그 데이터를 넘겨 준후에
                     // viewHolder Binding 을 어댑터안에서 진행한 후에 recyclerView.setAdapter까지
@@ -152,7 +151,7 @@ public class TotalItemListFragment extends RootFragment{
         // HairModel객체에 데이터를 담아서 ArrayList<HairModel>를 반환하시오
         ArrayList<TotalModel> arrayList = new ArrayList<>();
         for (String[] a : data) {
-            arrayList.add(new TotalModel(a[1], a[0]));
+//            arrayList.add(new TotalModel(a[1], a[0]));
         }
         return arrayList;
     }
@@ -189,11 +188,11 @@ public class TotalItemListFragment extends RootFragment{
             //holder.name.setText( itemModel.getShopName() );
             //holder.name.setText( "아아아");
             // 이미지 세팅
-            Glide.with(getActivity())
+           /* Glide.with(getActivity())
                     .load(totalModel.getImageUrl())
                     .override(500, 500)
                     .centerCrop()
-                    .into(holder.cell_item_image);
+                    .into(holder.cell_item_image);*/
             // 포스터에 클릭리스너 부착
             holder.cell_item_image.setOnClickListener(new View.OnClickListener() {
                 @Override

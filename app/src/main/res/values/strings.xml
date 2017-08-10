@@ -15,5 +15,12 @@
     <string name="title_activity_france">FranceActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
     <string name="title_activity_item_list">ItemListActivity</string>
+
+
+    <string name="kakao_app_key">ae160d509a35b8d7c8c77510e6d625a4</string>
+    <string name="facebook_app_id">1710126589282991</string>
+    <string name="fb_login_protocol_scheme">fb1710126589282991</string>
+
 </resources>
