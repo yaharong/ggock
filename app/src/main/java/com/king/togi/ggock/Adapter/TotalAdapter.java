@@ -24,7 +24,7 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_item_list_layout, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_listpage_item_layout, null);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -36,23 +36,23 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return items == null ? 0 : items.size();
     }
 
+    // 뷰홀더 클래스 선언
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView text_1, text_2,text_3;
+        private TextView image, name;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            text_1 = itemView.findViewById(R.id.textView1);
-            text_2 = itemView.findViewById(R.id.textView2);
-            text_3 = itemView.findViewById(R.id.textView3);
+            image = itemView.findViewById(R.id.cell_item_image);
+            name = itemView.findViewById(R.id.item_name);
         }
 
+        // 멤버변수 초기화 해주기
         public void toBind(TotalModel model){
-            text_1.setText(model.getText_1());
-            text_2.setText(model.getText_2());
-            text_3.setText(model.getText_3());
+            image.setText(model.getImageUrl());
+            name.setText(model.getName());
         }
     }
 }

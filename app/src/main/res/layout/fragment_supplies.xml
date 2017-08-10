@@ -2,18 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.king.togi.ggock.fragment.SuppliesFragment">
+    tools:context="com.king.togi.ggock.fragment.item_list_fragment.SuppliesListFragment"
+    android:background="#000000">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/supplies"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="zzzzzzzzz"
-        android:textColorLink="@color/colorPrimaryDark" />
 
 </FrameLayout>

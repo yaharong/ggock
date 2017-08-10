@@ -29,7 +29,7 @@ public class MainActivity extends RootActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_main);
 
         // 버터나이프 바인딩
         ButterKnife.bind(this);
@@ -57,6 +57,10 @@ public class MainActivity extends RootActivity {
                     // 17-08-01 : 홈 화면 새로고침
                     //changeActivity(MainActivity.this, MainActivity.class);
                     pushFragment(new HomePageFragment());
+                    return true;
+                case R.id.navigation_shopping:              // 이거꼭사 버튼 클릭 시
+                    changeActivity(MainActivity.this, ItemListActivity.class);
+
                     return true;
                 case R.id.navigation_zzim:              // 찜 버튼 클릭 시
                     //changeActivity(MainActivity.this, ZZimActivity.class);

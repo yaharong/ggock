@@ -15,14 +15,14 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.king.togi.ggock.R;
 import com.king.togi.ggock.model.ItemModel;
 import com.king.togi.ggock.ui.ClickableViewPager;
-import com.king.togi.ggock.ui.FranceActivity;
+import com.king.togi.ggock.ui.ItemDetailActivity;
+import com.king.togi.ggock.ui.ItemListActivity;
 
 import java.util.ArrayList;
 
@@ -56,6 +56,7 @@ public class HomePageFragment extends RootFragment {
     LoginFragement loginFragement = new LoginFragement();
     CardNewsFragment cardNewsFragment1 = new CardNewsFragment();
     CardNewsFragment cardNewsFragment2 = new CardNewsFragment();
+
     // ======================================================================================================
 
     public HomePageFragment() {
@@ -72,6 +73,7 @@ public class HomePageFragment extends RootFragment {
                              Bundle savedInstanceState) {
         // 해당 프레그먼트를 화면에 출력
         mView = inflater.inflate(R.layout.fragment_home_page, container, false);
+
 
         // 리사이클러 뷰=============================================================================
         // 리사이클러 뷰 for 최근 본 항목
@@ -113,10 +115,10 @@ public class HomePageFragment extends RootFragment {
 
         // 더보기 버튼에 클릭리스너 부착
         moreBtn         = (Button) mView.findViewById(R.id.moreBtn);
-        everyClickListener(moreBtn, FranceActivity.class);
+        everyClickListener(moreBtn, ItemListActivity.class);
         // 프랑스 이미지 뷰 클릭리스너 부착
         france_image    = (ImageView) mView.findViewById(R.id.france_image);
-        everyClickListener(france_image, FranceActivity.class);
+        everyClickListener(france_image, ItemListActivity.class);
 
         // 뷰페이저에 클릭리스너
         viewPagerClickListner(service_pager, loginFragement, loginFragement);
@@ -129,7 +131,7 @@ public class HomePageFragment extends RootFragment {
         pager.setOnItemClickListener(new ClickableViewPager.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                RelativeLayout mRelativeLayout = (RelativeLayout) mView.findViewById(R.id.image_frame);
+                //RelativeLayout mRelativeLayout = (RelativeLayout) mView.findViewById(R.id.image_frame);
                 switch (position) {
                     case 0: {
                         if (fragment1 != null)
@@ -178,6 +180,21 @@ public class HomePageFragment extends RootFragment {
         ImageView viewpoint_viewpager3 = (ImageView) layout.findViewById(R.id.viewpoint_viewpager3);
         // 점UI default 세팅
         viewpoint_viewpager1.setImageResource(android.R.drawable.presence_online);
+
+        if(pager.getAdapter().getCount() == 1)
+        {
+            viewpoint_viewpager1.setVisibility(View.VISIBLE);
+        }else if(pager.getAdapter().getCount() == 2)
+        {
+            viewpoint_viewpager1.setVisibility(View.VISIBLE);
+            viewpoint_viewpager2.setVisibility(View.VISIBLE);
+        }else
+        {
+            viewpoint_viewpager1.setVisibility(View.VISIBLE);
+            viewpoint_viewpager2.setVisibility(View.VISIBLE);
+            viewpoint_viewpager3.setVisibility(View.VISIBLE);
+        }
+
         // 뷰페이저 스와이프 리스너
         pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -244,7 +261,7 @@ public class HomePageFragment extends RootFragment {
         public TestViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             // xml -> View
             View view =
-                    LayoutInflater.from(getActivity()).inflate(R.layout.cell_latest_item_layout, parent, false);
+                    LayoutInflater.from(getActivity()).inflate(R.layout.cell_homepage_latest_item_layout, parent, false);
             return new TestViewHolder(view);
         }
 
@@ -262,6 +279,18 @@ public class HomePageFragment extends RootFragment {
                     .override(500, 500)
                     .centerCrop()
                     .into(holder.poster);
+
+            // 포스터에 클릭리스너 부착
+            holder.poster.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // 나중에 조건 변경 할것!
+                    if(true)
+                    {
+                        changeActivity(mView.getContext(), ItemDetailActivity.class);
+                    }
+                }
+            });
         }
 
         @Override
@@ -277,7 +306,7 @@ public class HomePageFragment extends RootFragment {
         public TestViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             // xml -> View
             View view =
-                    LayoutInflater.from(getActivity()).inflate(R.layout.cell_detail_item_layout, parent, false);
+                    LayoutInflater.from(getActivity()).inflate(R.layout.cell_homepage_detail_item_layout, parent, false);
             return new TestViewHolder(view);
         }
 
@@ -295,6 +324,17 @@ public class HomePageFragment extends RootFragment {
                     .override(500, 500)
                     .centerCrop()
                     .into(holder.poster);
+            // 포스터에 클릭리스너 부착
+            holder.poster.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // 나중에 조건 변경 할것!
+                    if(true)
+                    {
+                        changeActivity(mView.getContext(), ItemDetailActivity.class);
+                    }
+                }
+            });
         }
 
         @Override
@@ -311,6 +351,7 @@ public class HomePageFragment extends RootFragment {
         ImageView imageView;
         TextView textView1;
 
+
         public void setTextView1(String str) {
             this.textView1.setText(str);
         }
@@ -318,10 +359,11 @@ public class HomePageFragment extends RootFragment {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
 
-            View viewItem = LayoutInflater.from(getActivity()).inflate(R.layout.cell_viewpager_layout, container, false);
+            View viewItem = LayoutInflater.from(getActivity()).inflate(R.layout.cell_homepage_viewpager_layout, container, false);
 
             imageView = (ImageView) viewItem.findViewById(R.id.img_viewpager);
             imageView.setImageResource(imageId[position]);
+
             textView1 = (TextView) viewItem.findViewById(R.id.text_viewpager);
             if(position == 0)
             {

@@ -1,33 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.king.togi.ggock.ui.ItemDetailActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--상세물품 이미지-->
+        <android.support.v4.view.ViewPager
+            android:id="@+id/product_image_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_image_margin"
+            android:background="#dadada"
+            >
+        </android.support.v4.view.ViewPager>
+        <!--상세물품 이름-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_bar_margin"
+            android:gravity="center_vertical"
+            android:text="Product Name"
+            android:background="#ffdada"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            />
+        <!--상세물품 정보란 ( 가격, 좋아요 수 )-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#daffda"
+            >
 
-    <android.support.design.widget.AppBarLayout
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp">
+                <TextView
+                    android:id="@+id/euro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Won"
+                    />
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/euro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Euro"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Like Count"/>
+        </RelativeLayout>
+        <!--구매가능 장소 title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_bar_margin"
+            android:text="Available Place"
+            android:gravity="center_vertical"
+            android:background="#ffdada"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            />
+        <!-- 구매가능 장소 Layout -->
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        android:background="#dadaee"
+        android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/place_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+            <!--더보기 기능 구상해야함-->
+    </LinearLayout>
+        <!--상세 정보란 title-->
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="@dimen/text_bar_margin"
+            android:background="#ffdada"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical"
+            android:text="Product Info Title"/>
+        <!-- 상세 정보 내용-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product Info is here. "
+            android:padding="10dp"
+            android:gravity="center_vertical"/>
 
-    </android.support.design.widget.AppBarLayout>
+        <!--다른 고객이 본 상품 title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_bar_margin"
+            android:background="#ffdada"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical"
+            android:text="Other Client Like This"/>
+        <!--다른고객 이 본 상품 RecyclerView-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recommand_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
 
-    <include layout="@layout/content_item_detail" />
+        <!--의견 나누기 title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_bar_margin"
+            android:background="#ffdada"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical"
+            android:text="Product Comment (N)"/>
+        <!-- 의견 나누기 Recycler View-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/comment_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        </android.support.v7.widget.RecyclerView>
 
-</android.support.design.widget.CoordinatorLayout>
+        <!-- 의견 나누기 관련 버튼 Layout-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+                <!--댓글 쓰기 버튼-->
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="write"/>
+                <!--의견 전체 보기 버튼-->
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="view all"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- 안내내용 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"
+            android:text="User Infomation -----------------------------"/>
+    </LinearLayout>
+</ScrollView>

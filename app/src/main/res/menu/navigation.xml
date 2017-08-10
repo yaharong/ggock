@@ -8,6 +8,12 @@
         />
 
     <item
+        android:id="@+id/navigation_shopping"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="이거꼭사"
+        />
+
+    <item
         android:id="@+id/navigation_zzim"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_zzim" />

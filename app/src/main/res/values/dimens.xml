@@ -4,4 +4,10 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="title_bar_margin">60dp</dimen>
+    <dimen name="text_bar_margin">50dp</dimen>
+    <dimen name="main_image_margin">220dp</dimen>
+    <dimen name="recyclerview_horizontal_margin">150dp</dimen>
 </resources>

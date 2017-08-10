@@ -4,6 +4,11 @@
         <item >프랑스</item>
         <item >스페인</item>
     </string-array>
+    <string-array name="정렬">
+        <item >인기순</item>
+        <item >최신순</item>
+        <item >가격순</item>
+    </string-array>
 </resources>
 
 
