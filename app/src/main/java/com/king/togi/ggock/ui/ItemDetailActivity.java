@@ -56,32 +56,32 @@ public class ItemDetailActivity extends AppCompatActivity {
 
     }
 
-    class TestViewHolder extends RecyclerView.ViewHolder {
-        TextView name, place_btn;
+    class PlaceViewHolder extends RecyclerView.ViewHolder {
+        TextView place_name, place_btn;
 
 
         //TextView name;
-        public TestViewHolder(View itemView) {
+        public PlaceViewHolder(View itemView) {
             super(itemView);
 
-                name        = itemView.findViewById(R.id.name);
+            place_name        = itemView.findViewById(R.id.place_name);
                 place_btn   = itemView.findViewById(R.id.place_btn);
 
         }
     }
 
-    private class PlaceRecyclerViewAdapter extends RecyclerView.Adapter<TestViewHolder>
+    private class PlaceRecyclerViewAdapter extends RecyclerView.Adapter<PlaceViewHolder>
     {
         @Override
-        public TestViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public PlaceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view =
                     LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_detailpage_place_layout, parent, false);
 
-            return new TestViewHolder(view);
+            return new PlaceViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(TestViewHolder holder, int position) {
+        public void onBindViewHolder(PlaceViewHolder holder, int position) {
 
         }
 
@@ -91,18 +91,32 @@ public class ItemDetailActivity extends AppCompatActivity {
         }
     }
 
-    private class CommentRecyclerViewAdapter extends RecyclerView.Adapter<TestViewHolder>
+    class CommentViewHolder extends RecyclerView.ViewHolder {
+        TextView place_name, place_btn;
+
+
+        //TextView name;
+        public CommentViewHolder(View itemView) {
+            super(itemView);
+
+            place_name        = itemView.findViewById(R.id.place_name);
+            place_btn   = itemView.findViewById(R.id.place_btn);
+
+        }
+    }
+
+    private class CommentRecyclerViewAdapter extends RecyclerView.Adapter<CommentViewHolder>
     {
         @Override
-        public TestViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public CommentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view =
                     LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_detailpage_comment_layout, parent, false);
 
-            return new TestViewHolder(view);
+            return new CommentViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(TestViewHolder holder, int position) {
+        public void onBindViewHolder(CommentViewHolder holder, int position) {
 
         }
 
