@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 
 import com.king.togi.ggock.R;
 import com.king.togi.ggock.fragment.item_list_fragment.TotalItemListFragment;
@@ -16,6 +18,7 @@ import static com.king.togi.ggock.R.id.container;
 
 public class ItemListActivity extends RootActivity {
 
+    Button back_btn;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
@@ -36,7 +39,7 @@ public class ItemListActivity extends RootActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
 
-
+        back_btn = (Button) findViewById(R.id.back_btn);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -62,7 +65,12 @@ public class ItemListActivity extends RootActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {

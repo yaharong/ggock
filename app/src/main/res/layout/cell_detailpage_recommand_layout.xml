@@ -8,12 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-
         >
 
         <ImageView
             android:layout_margin="10dp"
-            android:id="@+id/poster"
+            android:id="@+id/recommand_poster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"

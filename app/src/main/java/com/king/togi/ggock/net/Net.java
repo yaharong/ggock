@@ -30,7 +30,9 @@ public class Net {
             // 기본 도메인 설정
             //.baseUrl("http://apis.daum.net")
             // 내 폰에서 테스트가능한 아마존 서버
-            .baseUrl("http://ec2-52-79-174-137.ap-northeast-2.compute.amazonaws.com:3000")
+            //.baseUrl("http://ec2-52-79-174-137.ap-northeast-2.compute.amazonaws.com:3000")
+            .baseUrl("http://52.78.224.134:3000")   // 우리서버
+
             .addConverterFactory(GsonConverterFactory.create()) // 응답 데이터를 json 자동 변환
             .build();
 

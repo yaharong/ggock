@@ -21,6 +21,7 @@
                 app:layout_scrollFlags="scroll|enterAlways"
                 >
                 <Button
+                    android:id="@+id/back_btn"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"

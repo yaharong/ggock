@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/chapon" />
+            app:srcCompat="@drawable/common_full_open_on_phone" />
 
         <ImageButton
             android:id="@+id/zzimButton"

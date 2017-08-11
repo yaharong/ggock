@@ -5,6 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.king.togi.ggock.ui.ItemDetailActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,119 +18,123 @@
             android:id="@+id/product_image_viewpager"
             android:layout_width="match_parent"
             android:layout_height="@dimen/main_image_margin"
-            android:background="#dadada"
-            >
-        </android.support.v4.view.ViewPager>
+            android:background="#dadada"></android.support.v4.view.ViewPager>
         <!--상세물품 이름-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/text_bar_margin"
-            android:gravity="center_vertical"
-            android:text="Product Name"
             android:background="#ffdada"
+            android:gravity="center_vertical"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            />
+            android:text="Product Name" />
         <!--상세물품 정보란 ( 가격, 좋아요 수 )-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="#daffda"
-            >
+            android:background="#daffda">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="20dp">
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/euro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Won"
-                    />
+                    android:text="Won" />
+
                 <TextView
-                    android:layout_alignParentRight="true"
-                    android:layout_alignTop="@id/euro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Euro"/>
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/euro"
+                    android:text="Euro" />
             </LinearLayout>
 
             <TextView
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Like Count"/>
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:text="Like Count" />
         </RelativeLayout>
         <!--구매가능 장소 title-->
         <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/text_bar_margin"
-            android:text="Available Place"
-            android:gravity="center_vertical"
             android:background="#ffdada"
+            android:gravity="center_vertical"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            />
+            android:text="Available Place" />
         <!-- 구매가능 장소 Layout -->
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#dadaee"
-        android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dadaee"
+            android:orientation="vertical">
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/place_recyclerview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="120dp">
             </android.support.v7.widget.RecyclerView>
+            <TextView
+                android:visibility="visible"
+                android:id="@+id/viewall_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#daffda"
+                android:gravity="center"
+                android:text="더보기▼" />
             <!--더보기 기능 구상해야함-->
-    </LinearLayout>
+        </LinearLayout>
         <!--상세 정보란 title-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/text_bar_margin"
             android:background="#ffdada"
+            android:gravity="center_vertical"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:gravity="center_vertical"
-            android:text="Product Info Title"/>
+            android:text="Product Info Title" />
         <!-- 상세 정보 내용-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Product Info is here. "
+            android:gravity="center_vertical"
             android:padding="10dp"
-            android:gravity="center_vertical"/>
+            android:text="Product Info is here. " />
 
         <!--다른 고객이 본 상품 title-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/text_bar_margin"
             android:background="#ffdada"
+            android:gravity="center_vertical"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:gravity="center_vertical"
-            android:text="Other Client Like This"/>
+            android:text="Other Client Like This" />
         <!--다른고객 이 본 상품 RecyclerView-->
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recommand_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </android.support.v7.widget.RecyclerView>
+            android:layout_height="@dimen/recyclerview_horizontal_margin"></android.support.v7.widget.RecyclerView>
 
         <!--의견 나누기 title-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/text_bar_margin"
             android:background="#ffdada"
+            android:gravity="center_vertical"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:gravity="center_vertical"
-            android:text="Product Comment (N)"/>
+            android:text="Product Comment (N)" />
         <!-- 의견 나누기 Recycler View-->
         <android.support.v7.widget.RecyclerView
             android:id="@+id/comment_recyclerview"
@@ -138,8 +146,8 @@
         <!-- 의견 나누기 관련 버튼 Layout-->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -150,12 +158,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="write"/>
+                    android:text="write" />
                 <!--의견 전체 보기 버튼-->
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="view all"/>
+                    android:text="view all" />
             </LinearLayout>
 
         </RelativeLayout>
@@ -164,9 +172,21 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:gravity="center_vertical"
-            android:text="User Infomation -----------------------------"/>
+            android:text="User Infomation -----------------------------" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/title_bar_margin"
+        android:text="☜"
+        android:textSize="30sp"
+        android:padding="10dp"
+        android:textColor="#ffffff"
+        />
+</RelativeLayout>
+
 </ScrollView>

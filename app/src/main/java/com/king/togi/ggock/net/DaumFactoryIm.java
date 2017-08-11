@@ -1,6 +1,6 @@
 package com.king.togi.ggock.net;
 
-import com.king.togi.ggock.model.TotalModel;
+import com.king.togi.ggock.model.ItemModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -14,7 +14,7 @@ public interface DaumFactoryIm {
 
     // 보내는 게없으므로 매개변수없음
     @GET("togi")
-    Call<TotalModel> togi();
+    Call<ItemModel> togi();
 
 }
 

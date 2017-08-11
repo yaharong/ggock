@@ -19,7 +19,7 @@ import com.bumptech.glide.Glide;
 import com.king.togi.ggock.Adapter.TotalAdapter;
 import com.king.togi.ggock.R;
 import com.king.togi.ggock.fragment.RootFragment;
-import com.king.togi.ggock.model.TotalModel;
+import com.king.togi.ggock.model.ItemModel;
 import com.king.togi.ggock.net.Net;
 import com.king.togi.ggock.ui.ItemDetailActivity;
 import com.king.togi.ggock.util.RecyclerViewPositionHelper;
@@ -41,7 +41,7 @@ public class TotalItemListFragment extends RootFragment{
     View mView;
     RecyclerView recyclerView;
     TotalAdapter totalAdapter;
-    ArrayList<TotalModel> totalModels;
+    ArrayList<ItemModel> itemModels;
 
     FloatingActionButton fab;
     Boolean topFlag;
@@ -74,13 +74,13 @@ public class TotalItemListFragment extends RootFragment{
         //totalAdapter = new TotalAdapter(totalModels);
         LatestItemAdapter latestItemAdapter = new LatestItemAdapter();
 
-        Call<TotalModel> togi = Net.getInstance().getDaumFactoryIm().togi();
-        togi.enqueue(new Callback<TotalModel>() {
+        Call<ItemModel> togi = Net.getInstance().getDaumFactoryIm().togi();
+        togi.enqueue(new Callback<ItemModel>() {
             @Override
-            public void onResponse(Call<TotalModel> call, Response<TotalModel> response) {
+            public void onResponse(Call<ItemModel> call, Response<ItemModel> response) {
                 if(response.isSuccessful())
                 {
-                    U.getInstance().log("내이름은 ? "+response.body().getName());
+                    U.getInstance().log("내이름은 ? "+response.body().getShopName());
                     // 데이터를 담아 둘 변수를 하나 만들고
                     // setAdapter() 메소드를 하나 짜서 그 데이터를 넘겨 준후에
                     // viewHolder Binding 을 어댑터안에서 진행한 후에 recyclerView.setAdapter까지
@@ -94,14 +94,14 @@ public class TotalItemListFragment extends RootFragment{
             }
 
             @Override
-            public void onFailure(Call<TotalModel> call, Throwable t) {
+            public void onFailure(Call<ItemModel> call, Throwable t) {
                 U.getInstance().log("Error2");
 
             }
         });
 
         // 데이터 설정
-        totalModels = initData();
+        itemModels = initData();
         // 연결(나중에 통신 후에 setAdapter 하도록 변경하자
         recyclerView.setAdapter(latestItemAdapter);
         RecyclerViewPositionHelper helper = RecyclerViewPositionHelper.createHelper(recyclerView);
@@ -139,7 +139,7 @@ public class TotalItemListFragment extends RootFragment{
         return mView;
     }
     // 통신 대신 쓰는 하드코딩으로 쓰고있답니다
-    public ArrayList<TotalModel> initData()
+    public ArrayList<ItemModel> initData()
     {
         String data[][] =
                 {
@@ -150,9 +150,9 @@ public class TotalItemListFragment extends RootFragment{
                         {"아레스옴므", "http://ldb.phinf.naver.net/20151126_91/1448511898022cXuOx_JPEG/167053593171965_0.jpeg"},
                 };
         // HairModel객체에 데이터를 담아서 ArrayList<HairModel>를 반환하시오
-        ArrayList<TotalModel> arrayList = new ArrayList<>();
+        ArrayList<ItemModel> arrayList = new ArrayList<>();
         for (String[] a : data) {
-            arrayList.add(new TotalModel(a[1], a[0]));
+            arrayList.add(new ItemModel(a[1], a[0]));
         }
         return arrayList;
     }
@@ -184,13 +184,13 @@ public class TotalItemListFragment extends RootFragment{
         public void onBindViewHolder(TestViewHolder holder, int position) {
             // 데이터 세팅!!
             // 데이터 추출
-            TotalModel totalModel = totalModels.get(position);
+            ItemModel itemModel = itemModels.get(position);
             // 텍스트 세팅
             //holder.name.setText( itemModel.getShopName() );
             //holder.name.setText( "아아아");
             // 이미지 세팅
             Glide.with(getActivity())
-                    .load(totalModel.getImageUrl())
+                    .load(itemModel.getPoster())
                     .override(500, 500)
                     .centerCrop()
                     .into(holder.cell_item_image);
@@ -209,7 +209,7 @@ public class TotalItemListFragment extends RootFragment{
 
         @Override
         public int getItemCount() {
-            return totalModels == null ? 0 : totalModels.size();
+            return itemModels == null ? 0 : itemModels.size();
         }
 
     }
