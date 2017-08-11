@@ -53,7 +53,7 @@ public class HomePageFragment extends RootFragment {
     // 프랑스 이미지뷰
     ImageView france_image;
     // 플래그먼트
-    LoginFragement loginFragement = new LoginFragement();
+//    LoginFragement loginFragement = new LoginFragement();
     CardNewsFragment cardNewsFragment1 = new CardNewsFragment();
     CardNewsFragment cardNewsFragment2 = new CardNewsFragment();
 
@@ -121,7 +121,7 @@ public class HomePageFragment extends RootFragment {
         everyClickListener(france_image, ItemListActivity.class);
 
         // 뷰페이저에 클릭리스너
-        viewPagerClickListner(service_pager, loginFragement, loginFragement);
+//        viewPagerClickListner(service_pager, loginFragement, loginFragement);
         viewPagerClickListner(cardnews_pager, cardNewsFragment1, cardNewsFragment2);
 
         return mView;

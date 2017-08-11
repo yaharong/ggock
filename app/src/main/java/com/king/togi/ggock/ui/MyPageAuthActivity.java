@@ -39,10 +39,10 @@ public class MyPageAuthActivity extends RootActivity {
         super.onCreate(savedInstanceState);
 
 
-        setContentView(R.layout.activity_my_page_noauth);
+        setContentView(R.layout.activity_my_page_auth);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+//        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);

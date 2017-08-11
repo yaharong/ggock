@@ -1,6 +1,7 @@
 package com.king.togi.ggock.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,7 +9,6 @@ import android.view.MenuItem;
 
 import com.king.togi.ggock.R;
 import com.king.togi.ggock.fragment.HomePageFragment;
-import com.king.togi.ggock.fragment.MyPageFragment;
 import com.king.togi.ggock.fragment.ZZimPageFragment;
 
 import butterknife.BindView;
@@ -68,7 +68,8 @@ public class MainActivity extends RootActivity {
                     return true;
                 case R.id.navigation_myPage:            // 마이페이지 버튼 클릭 시
                     //changeActivity(MainActivity.this, MyPageNoAuthActivity.class);
-                    pushFragment(new MyPageFragment());
+//                    pushFragment(new MyPageFragment());
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
                     return true;
             }
             return false;
