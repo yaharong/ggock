@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Tacademy on 2017-06-30.
  */
 public class Net {
+
     // 싱글톤의 생성자는 private하기 때문에 자기자신밖에 호출할수없다.
     private Net() {
     }
@@ -32,7 +33,6 @@ public class Net {
             // 내 폰에서 테스트가능한 아마존 서버
             //.baseUrl("http://ec2-52-79-174-137.ap-northeast-2.compute.amazonaws.com:3000")
             .baseUrl("http://52.78.224.134:3000")   // 우리서버
-
             .addConverterFactory(GsonConverterFactory.create()) // 응답 데이터를 json 자동 변환
             .build();
 
@@ -51,6 +51,7 @@ public class Net {
         {
             // 인터페이스로 정의된 메소드를 사용할 수 있게 객체화 시켜준다.
             daumFactoryIm = retrofit.create(DaumFactoryIm.class);
+
         }
         return daumFactoryIm;
     }

@@ -22,7 +22,6 @@ import com.king.togi.ggock.R;
 import com.king.togi.ggock.model.ItemModel;
 import com.king.togi.ggock.ui.ClickableViewPager;
 import com.king.togi.ggock.ui.ItemDetailActivity;
-import com.king.togi.ggock.ui.ItemListActivity;
 
 import java.util.ArrayList;
 
@@ -72,7 +71,7 @@ public class HomePageFragment extends RootFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // 해당 프레그먼트를 화면에 출력
-        mView = inflater.inflate(R.layout.fragment_home_page, container, false);
+        mView = inflater.inflate(R.layout.splash_layout, container, false);
 
 
         // 리사이클러 뷰=============================================================================
@@ -115,10 +114,12 @@ public class HomePageFragment extends RootFragment {
 
         // 더보기 버튼에 클릭리스너 부착
         moreBtn         = (Button) mView.findViewById(R.id.moreBtn);
-        everyClickListener(moreBtn, ItemListActivity.class);
+        everyClickListener(moreBtn, new ItemListFragment());
+        //everyClickListener(moreBtn, ItemListActivity.class);
         // 프랑스 이미지 뷰 클릭리스너 부착
         france_image    = (ImageView) mView.findViewById(R.id.france_image);
-        everyClickListener(france_image, ItemListActivity.class);
+        everyClickListener(france_image, new ItemListFragment());
+        //everyClickListener(france_image, ItemListActivity.class);
 
         // 뷰페이저에 클릭리스너
 //        viewPagerClickListner(service_pager, loginFragement, loginFragement);
@@ -163,11 +164,12 @@ public class HomePageFragment extends RootFragment {
     }
 
     // 첫번째 : 클릭리스너를 붙이고 싶은 View 객채, 두번째는 목표 지점 activity.class 로 전달
-    private void everyClickListener(View view, Class<?> targetActivity) {
+    private void everyClickListener(View view, Fragment fragment) {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeActivity(mView.getContext(), targetActivity);
+                //changeActivity(mView.getContext(), targetActivity);
+                pushFragment(fragment);
             }
         });
     }

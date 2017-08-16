@@ -1,22 +1,12 @@
 package com.king.togi.ggock.Adapter;
 
-import android.app.Activity;
-import android.content.Context;
-
-import com.kakao.auth.ApprovalType;
-import com.kakao.auth.AuthType;
-import com.kakao.auth.IApplicationConfig;
-import com.kakao.auth.ISessionConfig;
-import com.kakao.auth.KakaoAdapter;
-import com.king.togi.ggock.util.KakaoApplication;
-
 /**
  * Created by Tacademy on 2017-08-10.
  */
 
-public class KakaoTalkAdapter extends KakaoAdapter{
+public class KakaoTalkAdapter {//extends KakaoAdapter{
 
-    @Override
+    /*@Override
     public ISessionConfig getSessionConfig() {
         return new ISessionConfig() {
             @Override
@@ -54,6 +44,6 @@ public class KakaoTalkAdapter extends KakaoAdapter{
                 return KakaoApplication.getGlobalApplicationContext();
             }
         };
-    }
+    }*/
 }
 

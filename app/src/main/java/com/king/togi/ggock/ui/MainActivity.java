@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import com.king.togi.ggock.R;
 import com.king.togi.ggock.fragment.HomePageFragment;
+import com.king.togi.ggock.fragment.ItemListFragment;
 import com.king.togi.ggock.fragment.ZZimPageFragment;
 
 import butterknife.BindView;
@@ -59,7 +60,8 @@ public class MainActivity extends RootActivity {
                     pushFragment(new HomePageFragment());
                     return true;
                 case R.id.navigation_shopping:              // 이거꼭사 버튼 클릭 시
-                    changeActivity(MainActivity.this, ItemListActivity.class);
+                    pushFragment(new ItemListFragment());
+                    //changeActivity(MainActivity.this, ItemListActivity.class);
 
                     return true;
                 case R.id.navigation_zzim:              // 찜 버튼 클릭 시

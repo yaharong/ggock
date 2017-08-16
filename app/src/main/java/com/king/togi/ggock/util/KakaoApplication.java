@@ -3,9 +3,6 @@ package com.king.togi.ggock.util;
 import android.app.Activity;
 import android.app.Application;
 
-import com.kakao.auth.KakaoSDK;
-import com.king.togi.ggock.Adapter.KakaoTalkAdapter;
-
 /**
  * Created by Tacademy on 2017-08-10.
  */
@@ -20,7 +17,7 @@ public class KakaoApplication extends Application{
         super.onCreate();
         instance = this;
 
-        KakaoSDK.init(new KakaoTalkAdapter());
+        //KakaoSDK.init(new KakaoTalkAdapter());
     }
 
     public static Activity getCurrentActivity() {
