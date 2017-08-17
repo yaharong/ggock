@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".util.MyApplication"
+        android:name=".util.KakaoApplication"
         android:allowBackup="true"
         android:icon="@drawable/le"
         android:label="@string/app_name"
@@ -14,13 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--<meta-data-->
-            <!--android:name="com.facebook.sdk.ApplicationId"-->
-            <!--android:value="@string/facebook_app_id" />-->
-
-        <!--<meta-data-->
-            <!--android:name="com.kakao.sdk.AppKey"-->
-            <!--android:value="@string/facebook_app_id" />-->
 
         <!--<application-->
             <!--android:name=".util.KakaoApplication"-->
@@ -43,6 +36,18 @@
                 <!--<data android:scheme="@string/fb_login_protocol_scheme" />-->
             <!--</intent-filter>-->
         <!--</activity>-->
+
+        <!--스플래시-->
+        <activity
+            android:name=".ui.SplashActivity"
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name">
@@ -85,6 +90,26 @@
             android:name=".ui.MyPageAuthActivity"
             android:theme="@style/AppTheme" />
 
+        <!-- kakao -->
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/facebook_app_id" />
+        <activity
+            android:name="com.kakao.auth.authorization.authcode.KakaoWebViewActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+
+                <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- facebook -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
     </application>
 
